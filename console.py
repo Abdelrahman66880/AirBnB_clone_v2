@@ -2,6 +2,7 @@
 """ Console Module """
 import cmd
 import sys
+from datetime import datetime
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
@@ -132,7 +133,9 @@ class HBNBCommand(cmd.Cmd):
                 value = int(value)
             else:
                 continue
-        new_dict[key] = value
+            new_dict[key] = value
+        new_dict['created_at'] = datetime.now()
+        new_dict['updated_at'] = datetime.now()
         try:
             new_instance = eval(class_name)(**new_dict)
         except NameError:
