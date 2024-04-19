@@ -34,6 +34,7 @@ def c_route(text):
     return "C {}".format(result)
 
 
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_route(text):
     """Dispaly python text"""
